@@ -2,8 +2,31 @@
   "menus": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "titre": "Yassa guinar",
+      "description": "Yassa guinar bou nekh",
+      "image": "Test",
+      "prix": "2000"
+    },
+    {
+      "id": 2,
+      "titre": "Thieboudjene",
+      "description": "Thieboudjene Penda Mbaye",
+      "image": "Test",
+      "prix": "1500"
+    },
+    {
+      "id": 3,
+      "titre": "Poulet frittes",
+      "description": "Poulet frittes ",
+      "image": "Test",
+      "prix": "3000"
+    },
+    {
+      "id": 4,
+      "titre": "Soupou kandié",
+      "description": "Soupou kandié bou nekh",
+      "image": "Test",
+      "prix": "2500"
     }
   ],
   "comments": [

@@ -11,55 +11,18 @@
                         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                     </div>
                     <div class="add-button col-md-3 col-sm-3 col-xs-12">
-                        <button mat-raised-button color="primary">Nouveau Menu</button>
+                        <button mat-raised-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Nouveau Menu</button>
                     </div>
                 </div>
 
                 <div class="row mt-4">
-                    <div class="col-md-4 col-sm-4 col-xs-12 text-center mb-3">
-                        <p><img [src]="imgHamburger" alt="" class="img-fluid rounded-circle" ></p>
-                        <span class="h6">Hamburger</span> <br>
-                        <span class="mb-2">Prix : 2000 FCFA</span> <br>
-                        <span><i class="bi bi-pencil btn btn-success rounded-circle"></i></span>
-                        <span class="mx-2"></span>
-                        <span><i class="bi bi-trash btn btn-danger rounded-circle"></i></span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 text-center mb-3">
-                        <p><img [src]="imgPizza" alt="" class="img-fluid rounded-circle"></p>
-                        <span class="h6">Pizza mexicaine</span> <br>
-                        <span>Prix : 5500 FCFA</span> <br>
-                        <span><i class="bi bi-pencil btn btn-success rounded-circle"></i></span>
-                        <span class="mx-2"></span>
-                        <span><i class="bi bi-trash btn btn-danger rounded-circle"></i></span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 text-center mb-3">
-                        <p><img [src]="imgHamburger" alt="" class="img-fluid rounded-circle"></p>
-                        <span class="h6">Hamburger</span> <br>
-                        <span>Prix : 2000 FCFA</span> <br>
-                        <span><i class="bi bi-pencil btn btn-success rounded-circle"></i></span>
-                        <span class="mx-2"></span>
-                        <span><i class="bi bi-trash btn btn-danger rounded-circle"></i></span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 text-center mb-3">
-                        <p><img [src]="imgHamburger" alt="" class="img-fluid rounded-circle" ></p>
-                        <span class="h6">Hamburger</span> <br>
-                        <span class="mb-2">Prix : 2000 FCFA</span> <br>
-                        <span><i class="bi bi-pencil btn btn-success rounded-circle"></i></span>
-                        <span class="mx-2"></span>
-                        <span><i class="bi bi-trash btn btn-danger rounded-circle"></i></span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 text-center mb-3">
-                        <p><img [src]="imgHamburger" alt="" class="img-fluid rounded-circle"></p>
-                        <span class="h6">Hamburger</span> <br>
-                        <span>Prix : 2000 FCFA</span> <br>
-                        <span><i class="bi bi-pencil btn btn-success rounded-circle"></i></span>
-                        <span class="mx-2"></span>
-                        <span><i class="bi bi-trash btn btn-danger rounded-circle"></i></span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 text-center mb-3">
-                        <p><img [src]="imgHamburger" alt="" class="img-fluid rounded-circle"></p>
-                        <span class="h6">Hamburger</span> <br>
-                        <span>Prix : 2000 FCFA</span> <br>
+                    <div class="col-md-4 col-sm-4 col-xs-12 text-center mb-3" *ngFor="let row of menuData">
+                        <p>
+                            <!-- <img [src]="imgHamburger" alt="" class="img-fluid rounded-circle" > -->
+                            {{row.image}}
+                        </p>
+                        <span class="h6">{{row.titre}}</span> <br>
+                        <span class="mb-2">Prix : {{row.prix}} FCFA</span> <br>
                         <span><i class="bi bi-pencil btn btn-success rounded-circle"></i></span>
                         <span class="mx-2"></span>
                         <span><i class="bi bi-trash btn btn-danger rounded-circle"></i></span>
@@ -70,5 +33,43 @@
 
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Menu details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="mb-3">
+                       <label for="titre" class="form-label">Nom du menu</label>
+                       <input type="text" formControlName="titre" class="form-control" id="titre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="desc" class="form-label">Description</label>
+                        <input type="text" formControlName="description" class="form-control" id="desc">
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image du menu</label>
+                        <input type="text" formControlName="image" class="form-control" id="image">
+                    </div>
+                    <div class="mb-3">
+                        <label for="prix" class="form-label">Prix</label><br>
+                        <input type="text" formControlName="prix" class="form-control" id="prix" placeholder="En FCFA">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" *ngIf="showAdd" (click)="postEmployeeDetails()" class="btn btn-primary">Add</button>
+              <button type="button" *ngIf="showUpdate" (click)="updateEmployeeDetails()" class="btn btn-primary">Update</button> -->
+              <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" (click)="addMenuDetails()" class="btn btn-primary">Add</button>
+              <button type="button" class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+    </div>
 
 <app-footer></app-footer>
