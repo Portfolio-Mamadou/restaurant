@@ -1,9 +1,14 @@
 <nav class="navbar navbar-light" style="background-color: #000;">
     <div class="container-fluid">
-        <h2 style="color: aliceblue;">Mon Restaurant</h2>
+        <h2 style="color: aliceblue;">{{ 'Mon restaurant' | translate }}</h2>
         <div class="d-flex">
             <!-- <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button> -->
-            <button class="btn btn-primary mx-2">FR</button>
+            <a type="button" class="btn btn-primary mx-2" translate (click)="changeLanguage()" style="box-shadow: none;background-color: #fff;color: #000;">
+                <img *ngIf="language != 'fr'" [src]="frenchFlag" alt="" class="img-fluid" width="25px" height="10px">
+                <img *ngIf="language != 'en'" [src]="englishFlag" alt="" class="img-fluid" width="25px" height="10px" >
+                app.button
+                <i class="fa fa-angle-down mx-1"></i>
+            </a>
         </div>
     </div>
 </nav>

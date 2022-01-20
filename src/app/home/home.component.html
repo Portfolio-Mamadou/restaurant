@@ -2,7 +2,8 @@
 
 
     <div class="container mt-4 mb-4">
-        <p class="text-center">Venez découvrir nos délices avec des prix abordables, faites vous plaisir !</p>
+        <!-- <p class="text-center">Venez découvrir nos délices avec des prix abordables, faites vous plaisir !</p> -->
+        <p class="text-center">{{ 'Venez découvrir nos délices avec des prix abordables, faites vous plaisir !' | translate }}</p>
 
         <mat-card>
             <div class="all-menus">
@@ -11,7 +12,7 @@
                         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                     </div>
                     <div class="add-button col-md-3 col-sm-3 col-xs-12">
-                        <button mat-raised-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Nouveau Menu</button>
+                        <button mat-raised-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal">{{ 'Nouveau menu' | translate }}</button>
                     </div>
                 </div>
 
@@ -52,7 +53,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image du menu</label>
-                        <input type="text" formControlName="image" class="form-control" id="image">
+                        <!-- <input type="text" formControlName="image" class="form-control" id="image"> -->
+                        <input class="form-control" formControlName="image" type="file" id="formFile">
                     </div>
                     <div class="mb-3">
                         <label for="prix" class="form-label">Prix</label><br>
